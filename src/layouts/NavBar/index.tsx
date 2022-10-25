@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container } from './styles';
+import { Navigation } from './styles';
 
 const NavBar: React.FC = () => {
   return (
-    <Container>
+    <Navigation>
 
-    </Container>
+    </Navigation>
   );
 }
 

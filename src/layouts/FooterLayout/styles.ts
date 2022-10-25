@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
-export const Navigation = styled.nav`
-  position: absolute;
-  top: 0;
-  left: 0;
+export const Footer = styled.footer`
+  ${(props) => props.theme.mixins.containerGridDefault};
+  grid-column: full-start/full-end;
   padding: ${(props) => props.theme.spacing(2)};
   width: 100%;
-  height: 8rem;
+  height: inherit;
   background-color: ${(props) => props.theme.pallete.colors.grey[100]};
   box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
 `;

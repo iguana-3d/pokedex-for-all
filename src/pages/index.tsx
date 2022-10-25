@@ -117,18 +117,31 @@ const Home: NextPage = () => {
     }
   };
 
+  const handleLoadMorePokemon = async () => {
+    const listPokemons = await ListPokemonPaginationService(4, pokemons.length);
+    const pokemonsResponse: IPokemon[] = [];
+    for (const listPokemon of listPokemons.results) {
+      await SearchPokemonService(listPokemon.name).then((pokemon) => {
+        console.log(pokemon);
+        pokemonsResponse.push(pokemon);
+      });
+    }
+    setPokemons(pokemons.concat(pokemonsResponse));
+  };
+
   useEffect(() => {
-    (async () => {
-      const listPokemons = await ListPokemonPaginationService(10, 0);
-      const pokemonsResponse: IPokemon[] = [];
-      for (const listPokemon of listPokemons.results) {
-        await SearchPokemonService(listPokemon.name).then((pokemon) => {
-          console.log(pokemon);
-          pokemonsResponse.push(pokemon);
-        });
-      }
-      setPokemons(pokemonsResponse);
-    })();
+    router.isReady &&
+      (async () => {
+        const listPokemons = await ListPokemonPaginationService(4, 0);
+        const pokemonsResponse: IPokemon[] = [];
+        for (const listPokemon of listPokemons.results) {
+          await SearchPokemonService(listPokemon.name).then((pokemon) => {
+            console.log(pokemon);
+            pokemonsResponse.push(pokemon);
+          });
+        }
+        setPokemons(pokemonsResponse);
+      })();
   }, [router.isReady]);
 
   return (
@@ -169,6 +182,9 @@ const Home: NextPage = () => {
             </Card>
           );
         })}
+      </div>
+      <div className="cards-loading-more">
+        <button onClick={handleLoadMorePokemon}>Load More</button>
       </div>
     </Container>
   );

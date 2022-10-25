@@ -13,8 +13,15 @@ export const Container = styled.div`
 
   .content {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: ${(props) => props.theme.spacing(3)};
+  }
+
+  .cards-loading-more {
+    display: flex;
+    justify-content: center;
+    margin: ${props => props.theme.spacing(5, 0)};
   }
 `;
 
@@ -59,6 +66,7 @@ export const Card = styled.div<ICardTypeProps>`
   .card-pokemon-name {
     font-size: 2.4rem;
     font-weight: ${(props) => props.theme.typeFaceWeight.medium};
+    text-transform: capitalize;
   }
 
   .card-types-box {
