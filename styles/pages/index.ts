@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ITypes } from "../services/pokemon.types";
+import { ITypes } from "../../src/services/pokemon.types";
 
 interface ICardTypeProps {
   backgroundColor: {

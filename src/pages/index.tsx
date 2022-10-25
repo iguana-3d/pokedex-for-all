@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { Container, Card, CardType } from "./styles";
+import { Container, Card, CardType } from "../../styles/pages";
 import { useTheme } from "styled-components";
 //Services
 import {

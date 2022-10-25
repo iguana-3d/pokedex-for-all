@@ -7,8 +7,7 @@ const nextConfig = {
   },
   images: {
     domains: ['raw.githubusercontent.com'],
-  },
-  pageExtensions: ['page.tsx']
+  }
 };
 
 module.exports = nextConfig;
