@@ -132,7 +132,7 @@ export const gradients = {
   fire: "linear-gradient(135deg, #fc0c0b, #f67f0b, #f8b80e)",
   water: "linear-gradient(135deg, #08517a, #0a7abc, #36aff6)",
   grass: "linear-gradient(135deg, #204000, #3e9709, #67f70a)",
-  electric: "linear-gradient(135deg, #969101, #fffa24, #f7ff85, #fff9d5)",
+  electric: "linear-gradient(135deg, #969101, #fffa24, #f7ff85)",
   psychic: "linear-gradient(135deg, #8a0532, #ec0e63, #f55792, #fcb6d0)",
   ice: "linear-gradient(135deg, #103d43, #1995a1, #66d1e5, #dcfcf7)",
   dragon: "linear-gradient(135deg, #29036a, #8a55fd, #d6b1fe)",
