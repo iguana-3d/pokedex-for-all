@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ITypes } from "../../src/services/pokemon.types";
+import { lighten } from "polished";
 
 interface ICardTypeProps {
   backgroundColor: {
@@ -21,7 +22,7 @@ export const Container = styled.div`
   .cards-loading-more {
     display: flex;
     justify-content: center;
-    margin: ${props => props.theme.spacing(5, 0)};
+    margin: ${(props) => props.theme.spacing(5, 0)};
   }
 `;
 
@@ -40,6 +41,21 @@ export const Card = styled.div<ICardTypeProps>`
     0.5rem 0.5rem 0.5rem rgba(${(props) => props.backgroundColor.primary}, 0.05),
     -0.5rem -0.5rem 0.5rem
       rgba(${(props) => props.backgroundColor.primary}, 0.5);
+  transition: ${(props) => props.theme.transitions("default", 0.15)};
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0
+      ${(props) => lighten(0.16, props.backgroundColor.primary)};
+  }
+
+  img {
+    transition: ${(props) => props.theme.transitions("default", 0.15)};
+  }
+
+  &:hover img {
+    filter: saturate(1.25);
+  }
 
   .card-box {
     display: flex;

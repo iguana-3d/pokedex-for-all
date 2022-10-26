@@ -1,5 +1,4 @@
 import { lighten, parseToRgb } from "polished";
-import React from "react";
 import { css } from "styled-components";
 import { pixelsToRemUnit } from "../../src/utils/sizesCalcs";
 //TYPES
@@ -292,13 +291,13 @@ export const theme = {
   transitions: (
     kindOfTransition: IKindOfTransition,
     timeInSeconds?: number,
-    property?: React.CSSProperties
+    propertyCss?: string
   ) => {
     const transitionObject = {
-      default: `${property || "all"} ${
+      default: `${propertyCss || "all"} ${
         timeInSeconds || 0.3
       }s cubic-bezier(1, 0, 0, 1)`,
-      easeInOutBack: `${property || "all"} ${
+      easeInOutBack: `${propertyCss || "all"} ${
         timeInSeconds || 0.3
       } cubic-bezier(0.68, -0.6, 0.32, 1.6);`,
     };
