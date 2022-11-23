@@ -138,41 +138,11 @@ export const gradients = {
   dark: "linear-gradient(135deg, #2d221c, #5f4632, #916852, #4f4f4f)",
   fairy: "linear-gradient(135deg, #f87ea7, #ffa0c2, #fdd1e0)",
   // $gradient-top: linear-gradient(0deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-right: linear-gradient(90deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-bottom: linear-gradient(180deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-left: linear-gradient(270deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-top-right: linear-gradient(45deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-bottom-right: linear-gradient(135deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-top-left: linear-gradient(225deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-bottom-left: linear-gradient(315deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
   // $gradient-radial: radial-gradient(#ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-top: linear-gradient(0deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-right: linear-gradient(90deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-bottom: linear-gradient(180deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-left: linear-gradient(270deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-top-right: linear-gradient(45deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-bottom-right: linear-gradient(135deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-top-left: linear-gradient(225deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-bottom-left: linear-gradient(315deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
-  // $gradient-radial: radial-gradient(#7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff);
+  gradient1:
+    "linear-gradient(90deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff, #5390d9ff, #5e60ceff, #6930c3ff,  #7400b8ff)",
   // $gradient-top: linear-gradient(0deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-right: linear-gradient(90deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-bottom: linear-gradient(180deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-left: linear-gradient(270deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-top-right: linear-gradient(45deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-bottom-right: linear-gradient(135deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-top-left: linear-gradient(225deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-bottom-left: linear-gradient(315deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-radial: radial-gradient(#cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
   // $gradient-top: linear-gradient(0deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-right: linear-gradient(90deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-bottom: linear-gradient(180deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-left: linear-gradient(270deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-top-right: linear-gradient(45deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-bottom-right: linear-gradient(135deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-top-left: linear-gradient(225deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-bottom-left: linear-gradient(315deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
-  // $gradient-radial: radial-gradient(#edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
 };
 
 export const typefaceWeight = {
@@ -252,7 +222,11 @@ const createCustomShadow = (color: string): ICustomShadowOptions => {
 
 export const theme = {
   components: {
-    buttons: {},
+    buttons: {
+      buttonDefault: {
+        gradientColor: gradients.gradient1,
+      },
+    },
   },
   pallete: {
     colors: pallete.colors,
@@ -286,6 +260,12 @@ export const theme = {
         [center-end]
         minmax(6rem, 1fr)
         [full-end];
+    `,
+    absoluteCenter: () => css`
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     `,
   },
   transitions: (

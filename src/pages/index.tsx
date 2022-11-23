@@ -7,6 +7,7 @@ import { Container, Card } from "../../styles/pages";
 import { cardTypeColor } from "../utils/cardTypeColor";
 //Components
 import CardType from "../components/CardType";
+import ButtonDefault from '../components/buttons/ButtonDefault';
 //Services
 import {
   ListPokemonPaginationService,
@@ -17,9 +18,11 @@ import { IPokemon } from "../services/pokemon.types";
 
 const Home: NextPage = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
+  const [isLoadingPokemon, setisLoadingPokemon] = useState<boolean>(false);
   const router = useRouter();
 
   const handleLoadMorePokemon = async () => {
+    setisLoadingPokemon(prev => !prev);
     const listPokemons = await ListPokemonPaginationService(4, pokemons.length);
     const pokemonsResponse: IPokemon[] = [];
     for (const listPokemon of listPokemons.results) {
@@ -28,6 +31,7 @@ const Home: NextPage = () => {
       });
     }
     setPokemons(pokemons.concat(pokemonsResponse));
+    setisLoadingPokemon(prev => !prev);
   };
 
   useEffect(() => {
@@ -85,7 +89,7 @@ const Home: NextPage = () => {
         })}
       </div>
       <div className="cards-loading-more">
-        <button onClick={handleLoadMorePokemon}>Load More</button>
+        <ButtonDefault buttonText="load more" isLoading={isLoadingPokemon} onClick={handleLoadMorePokemon} />
       </div>
     </Container>
   );
