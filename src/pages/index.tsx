@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
   const handleLoadMorePokemon = async () => {
     setisLoadingPokemon(prev => !prev);
-    const listPokemons = await ListPokemonPaginationService(4, pokemons.length);
+    const listPokemons = await ListPokemonPaginationService(8, pokemons.length);
     const pokemonsResponse: IPokemon[] = [];
     for (const listPokemon of listPokemons.results) {
       await SearchPokemonService(listPokemon.name).then((pokemon) => {
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   useEffect(() => {
     router.isReady &&
       (async () => {
-        const listPokemons = await ListPokemonPaginationService(4, 0);
+        const listPokemons = await ListPokemonPaginationService(8, 0);
         const pokemonsResponse: IPokemon[] = [];
         for (const listPokemon of listPokemons.results) {
           await SearchPokemonService(listPokemon.name).then((pokemon) => {

@@ -3,14 +3,17 @@ import { Container } from "../../../styles/pages/list";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useTheme } from "styled-components";
-import { getLuminance } from 'polished';
+import { getLuminance } from "polished";
 //Services
 import { SearchPokemonService } from "../../services/pokemon.service";
 import { IPokemon } from "../../services/pokemon.types";
 //Components
 import CardType from "../../components/CardType";
 //Utils
-import { kilogramsToPounds, metersToFeet } from "../../utils/measurementUnitsConversion";
+import {
+  kilogramsToPounds,
+  metersToFeet,
+} from "../../utils/measurementUnitsConversion";
 
 const List: React.FC = () => {
   const [pokemonData, setPokemonInformation] = useState<IPokemon>();
@@ -24,10 +27,9 @@ const List: React.FC = () => {
           router.query.id as string | number
         );
         setPokemonInformation(pokemonInformations);
+        console.log(pokemonInformations);
       })();
   }, [router.query.id, router.isReady]);
-
-  console.log(getLuminance(theme.pallete.colors.others.types.dragon), getLuminance(theme.pallete.colors.others.types.electric));
 
   return (
     <Container>

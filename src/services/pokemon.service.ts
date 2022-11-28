@@ -1,5 +1,10 @@
 import axios from "axios";
-import { IPokemon, IListPokemonPaginationService } from "./pokemon.types";
+import {
+  IPokemon,
+  IListPokemonPaginationService,
+  IPokemonEvolutionChain,
+  IPokemonSpecies,
+} from "./pokemon.types";
 
 export const SearchPokemonService = async (
   nameOrId: string | number
@@ -19,6 +24,24 @@ export const ListPokemonPaginationService = async (
 ): Promise<IListPokemonPaginationService> => {
   const response = await axios.get<IListPokemonPaginationService>(
     `${process.env.NEXT_PUBLIC_URL_API_BASE}/pokemon/?limit=${limit}&offset=${offset}`
+  );
+  return response.data;
+};
+
+export const SearchPokemonSpeciesService = async (
+  id: number
+): Promise<IPokemonSpecies> => {
+  const response = await axios.get<IPokemonSpecies>(
+    `${process.env.NEXT_PUBLIC_URL_API_BASE}/pokemon-species/${id}/`
+  );
+  return response.data;
+};
+
+export const SearchpokemonEvolutionChainService = async (
+  id: number
+): Promise<IPokemonEvolutionChain> => {
+  const response = await axios.get<IPokemonEvolutionChain>(
+    `${process.env.NEXT_PUBLIC_URL_API_BASE}/evolution-chain/${id}/`
   );
   return response.data;
 };
