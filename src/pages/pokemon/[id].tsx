@@ -5,10 +5,15 @@ import Image from "next/image";
 import { useTheme } from "styled-components";
 import { getLuminance } from "polished";
 //Services
-import { SearchPokemonService } from "../../services/pokemon.service";
-import { IPokemon } from "../../services/pokemon.types";
+import {
+  SearchPokemonService,
+  SearchPokemonSpeciesService,
+  SearchPokemonEvolutionChainService,
+} from "../../services/pokemon.service";
+import { IPokemon, IPokemonEvolutionChain } from "../../services/pokemon.types";
 //Components
 import CardType from "../../components/CardType";
+import DefaultEvolution from "../../components/evolutions/DefaultEvolution";
 //Utils
 import {
   kilogramsToPounds,
@@ -17,6 +22,7 @@ import {
 
 const List: React.FC = () => {
   const [pokemonData, setPokemonInformation] = useState<IPokemon>();
+  const [pokemonEvolutionChain, setPokemonEvolutionChain] = useState<IPokemonEvolutionChain>({} as IPokemonEvolutionChain);
   const router = useRouter();
   const theme = useTheme();
 
@@ -26,8 +32,21 @@ const List: React.FC = () => {
         const pokemonInformations = await SearchPokemonService(
           router.query.id as string | number
         );
+        const getEvolutionChainNumber = await SearchPokemonSpeciesService(
+          pokemonInformations.id
+        ).then((speciesResponse) => {
+          return speciesResponse?.evolution_chain.url
+            .split("/")
+            .filter((specieFilter) => !!specieFilter)
+            .slice(-1)[0];
+        });
+        const getEvolutionChain = await SearchPokemonEvolutionChainService(
+          parseInt(getEvolutionChainNumber)
+        );
+        
         setPokemonInformation(pokemonInformations);
-        console.log(pokemonInformations);
+        setPokemonEvolutionChain(getEvolutionChain);
+        console.log(getEvolutionChain);
       })();
   }, [router.query.id, router.isReady]);
 
@@ -116,6 +135,7 @@ const List: React.FC = () => {
           </tbody>
         </table>
       </div>
+      <DefaultEvolution pokemonEvolutionChain={pokemonEvolutionChain} pokemonData={pokemonData} />
     </Container>
   );
 };

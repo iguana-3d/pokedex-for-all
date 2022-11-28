@@ -37,7 +37,7 @@ export const SearchPokemonSpeciesService = async (
   return response.data;
 };
 
-export const SearchpokemonEvolutionChainService = async (
+export const SearchPokemonEvolutionChainService = async (
   id: number
 ): Promise<IPokemonEvolutionChain> => {
   const response = await axios.get<IPokemonEvolutionChain>(

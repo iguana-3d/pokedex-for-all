@@ -34,13 +34,13 @@ export const Card = styled.div<ICardTypeProps>`
   padding: ${(props) => props.theme.spacing(2)};
   border-radius: ${(props) => props.theme.spacing(1)};
   background-image: ${(props) => props.backgroundColor.gradient};
-  box-shadow: inset 0.5rem 0.5rem 0.5rem
-      rgba(${(props) => props.backgroundColor.primary}, 0.05),
+  /* box-shadow: inset 0.5rem 0.5rem 0.5rem
+      rgba(${(props) => props.theme.pallete.functions.parseToRgb(props.backgroundColor.primary)}, 0.05),
     inset -0.5rem -0.5rem 0.5rem
-      rgba(${(props) => props.backgroundColor.primary}, 0.5),
-    0.5rem 0.5rem 0.5rem rgba(${(props) => props.backgroundColor.primary}, 0.05),
+      rgba(${(props) => (props) => props.theme.pallete.functions.parseToRgb(props.backgroundColor.primary)}, 0.5),
+    0.5rem 0.5rem 0.5rem rgba(${(props) => (props) => props.theme.pallete.functions.parseToRgb(props.backgroundColor.primary)}, 0.05),
     -0.5rem -0.5rem 0.5rem
-      rgba(${(props) => props.backgroundColor.primary}, 0.5);
+      rgba(${(props) => (props) => props.theme.pallete.functions.parseToRgb(props.backgroundColor.primary)}, 0.5); */
   transition: ${(props) => props.theme.transitions("default", 0.15)};
   cursor: pointer;
 
