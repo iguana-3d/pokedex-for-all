@@ -2,6 +2,25 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   grid-column: center-start/center-end;
+  display: grid;
+  grid-gap: 3rem;
+
+  .return-page {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    padding: 1rem 1rem 1rem 0;
+    cursor: pointer;
+
+    span {
+      transition: ${(props) => props.theme.transitions("default", 0.15)};
+    }
+  }
+
+  .return-page:hover span {
+    font-weight: ${(props) => props.theme.typeFaceWeight.medium};
+  }
 
   .basic-informations {
     display: flex;
@@ -25,8 +44,8 @@ export const Container = styled.div`
 
   .table-row {
     text-align: left;
-    border-bottom: 1px solid ${props => props.theme.pallete.colors.grey[300]};
-    color: ${props => props.theme.pallete.colors.text.primary};
+    border-bottom: 1px solid ${(props) => props.theme.pallete.colors.grey[300]};
+    color: ${(props) => props.theme.pallete.colors.text.primary};
   }
 
   .table-row td {
@@ -35,13 +54,13 @@ export const Container = styled.div`
 
   .table-title {
     width: min-content;
-    color: ${props => props.theme.pallete.colors.text.primary};
-    font-weight: ${props => props.theme.typeFaceWeight.medium};
+    color: ${(props) => props.theme.pallete.colors.text.primary};
+    font-weight: ${(props) => props.theme.typeFaceWeight.medium};
   }
 
   .table-type {
     display: flex;
     flex-wrap: wrap;
-    gap: ${props => props.theme.spacing(1)};
+    gap: ${(props) => props.theme.spacing(1)};
   }
 `;

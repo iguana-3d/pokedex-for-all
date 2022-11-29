@@ -14,19 +14,22 @@ import { IPokemon, IPokemonEvolutionChain } from "../../services/pokemon.types";
 //Components
 import CardType from "../../components/CardType";
 import DefaultEvolutionCircle from "../../components/evolutions/DefaultEvolutionCircle";
+import RadarChart from "../../components/charts/RadarChart";
 //Utils
 import {
   kilogramsToPounds,
   metersToFeet,
 } from "../../utils/measurementUnitsConversion";
+//Icons
+import { FiChevronLeft } from "react-icons/fi";
+import Link from "next/link";
 
 const List: React.FC = () => {
   const [pokemonsInformation, setPokemonsInformation] = useState<IPokemon[]>(
     []
   );
-  const [pokemonEvolutionChain, setPokemonEvolutionChain] =
-    useState<IPokemonEvolutionChain>({} as IPokemonEvolutionChain);
   const router = useRouter();
+  const theme = useTheme();
 
   useEffect(() => {
     router.isReady &&
@@ -43,7 +46,6 @@ const List: React.FC = () => {
         const getEvolutionChain = await SearchPokemonEvolutionChainService(
           parseInt(getEvolutionChainNumber)
         );
-
         pokemonIds.push(
           parseInt(
             getEvolutionChain.chain.species.url
@@ -83,12 +85,18 @@ const List: React.FC = () => {
           );
         }
         setPokemonsInformation(searchPokemon);
-        setPokemonEvolutionChain(getEvolutionChain);
+        console.log(searchPokemon);
       })();
   }, [router.query.id, router.isReady]);
 
   return (
     <Container>
+      <Link href="/">
+        <div className="return-page">
+          <FiChevronLeft size={"3rem"} color={theme.pallete.colors.grey[400]} />{" "}
+          <span>voltar</span>
+        </div>
+      </Link>
       {pokemonsInformation.map((pokemonInformation) => {
         return (
           pokemonInformation.id === parseInt(router.query.id as string) && (
@@ -178,6 +186,14 @@ const List: React.FC = () => {
           )
         );
       })}
+      <RadarChart
+        pokemonInformation={
+          pokemonsInformation.filter(
+            (pokemonInformation) =>
+              pokemonInformation.id === parseInt(router.query.id as string)
+          )[0]
+        }
+      />
       <DefaultEvolutionCircle
         pokemonsInformation={pokemonsInformation}
         pokemonActiveId={parseInt(router.query.id as string)}

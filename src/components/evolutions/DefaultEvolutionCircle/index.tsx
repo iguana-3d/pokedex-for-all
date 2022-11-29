@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container, CardCircleBox } from "./styles";
 import { FiChevronRight } from "react-icons/fi";
 import { useTheme } from "styled-components";
+import Link from "next/link";
 //Components
 import CardType from "../../CardType";
 //Types
@@ -34,10 +35,12 @@ const DefaultEvolutionCircle: React.FC<IProps> = ({
                   pokemonInformation.types[0].type.name
                 )}
               >
+                <Link href={`/pokemon/${pokemonInformation.id}`}>
+                
                 <div className="image-content-circle">
                   {!!pokemonInformation && (
                     <Image
-                      src={`${
+                    src={`${
                         pokemonInformation?.sprites.other["official-artwork"]
                           .front_default || "/static/images/pokeball.png"
                       }`}
@@ -46,9 +49,10 @@ const DefaultEvolutionCircle: React.FC<IProps> = ({
                       objectFit="contain"
                       quality={50}
                       priority
-                    />
-                  )}
+                      />
+                      )}
                 </div>
+                      </Link>
                 <p className="card-pokemon-name">
                   {pokemonInformation?.name}&nbsp;
                   <span>#{("0000" + pokemonInformation?.id).slice(-4)}</span>

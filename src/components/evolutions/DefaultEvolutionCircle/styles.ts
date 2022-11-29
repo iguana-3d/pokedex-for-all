@@ -45,6 +45,7 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
   min-width: 25rem;
   gap: 1rem;
 
+
   .image-content-circle {
     position: relative;
     width: 15rem;
@@ -59,6 +60,7 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
         : props.theme.shadows.custom.light.n8};
     background-color: ${(props) => props.theme.pallete.colors.common.white};
     border-radius: 50%;
+    cursor: pointer;
   }
 
   .image-content-circle::after {
