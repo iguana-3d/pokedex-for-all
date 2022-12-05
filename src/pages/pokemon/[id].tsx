@@ -3,14 +3,13 @@ import { Container } from "../../../styles/pages/list";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useTheme } from "styled-components";
-import { getLuminance } from "polished";
 //Services
 import {
   SearchPokemonService,
   SearchPokemonSpeciesService,
   SearchPokemonEvolutionChainService,
 } from "../../services/pokemon.service";
-import { IPokemon, IPokemonEvolutionChain } from "../../services/pokemon.types";
+import { IPokemon } from "../../services/pokemon.types";
 //Components
 import CardType from "../../components/CardType";
 import DefaultEvolutionCircle from "../../components/evolutions/DefaultEvolutionCircle";

@@ -8,6 +8,7 @@ import { cardTypeColor } from "../utils/cardTypeColor";
 //Components
 import CardType from "../components/CardType";
 import ButtonDefault from '../components/buttons/ButtonDefault';
+import TextField from "../components/inputs/TextField";
 //Services
 import {
   ListPokemonPaginationService,
@@ -15,6 +16,7 @@ import {
 } from "../services/pokemon.service";
 //Types
 import { IPokemon } from "../services/pokemon.types";
+import TextField2 from "../components/inputs/TextField2";
 
 const Home: NextPage = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
@@ -50,6 +52,8 @@ const Home: NextPage = () => {
 
   return (
     <Container>
+      {/* <TextField /> */}
+      {/* <TextField2 /> */}
       <div className="content">
         {pokemons.map((pokemon) => {
           return (

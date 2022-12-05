@@ -227,6 +227,13 @@ export const theme = {
         gradientColor: gradients.gradient1,
       },
     },
+    inputs: {
+      textField: {
+        colors: {
+          border: pallete.colors.grey[500]
+        }
+      }
+    }
   },
   pallete: {
     colors: pallete.colors,
