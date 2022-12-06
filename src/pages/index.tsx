@@ -36,25 +36,25 @@ const Home: NextPage = () => {
     setisLoadingPokemon(prev => !prev);
   };
 
-  useEffect(() => {
-    router.isReady &&
-      (async () => {
-        const listPokemons = await ListPokemonPaginationService(8, 0);
-        const pokemonsResponse: IPokemon[] = [];
-        for (const listPokemon of listPokemons.results) {
-          await SearchPokemonService(listPokemon.name).then((pokemon) => {
-            pokemonsResponse.push(pokemon);
-          });
-        }
-        setPokemons(pokemonsResponse);
-      })();
-  }, [router.isReady]);
+  // useEffect(() => {
+  //   router.isReady &&
+  //     (async () => {
+  //       const listPokemons = await ListPokemonPaginationService(8, 0);
+  //       const pokemonsResponse: IPokemon[] = [];
+  //       for (const listPokemon of listPokemons.results) {
+  //         await SearchPokemonService(listPokemon.name).then((pokemon) => {
+  //           pokemonsResponse.push(pokemon);
+  //         });
+  //       }
+  //       setPokemons(pokemonsResponse);
+  //     })();
+  // }, [router.isReady]);
 
   return (
     <Container>
       {/* <TextField /> */}
-      {/* <TextField2 /> */}
-      <div className="content">
+      <TextField2 />
+      {/* <div className="content">
         {pokemons.map((pokemon) => {
           return (
             <Card
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
       </div>
       <div className="cards-loading-more">
         <ButtonDefault buttonText="load more" isLoading={isLoadingPokemon} onClick={handleLoadMorePokemon} />
-      </div>
+      </div> */}
     </Container>
   );
 };
