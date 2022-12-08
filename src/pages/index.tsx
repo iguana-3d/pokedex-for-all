@@ -5,9 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container, Card } from "../../styles/pages";
 import { cardTypeColor } from "../utils/cardTypeColor";
+import { useTheme } from 'styled-components';
 //Components
 import CardType from "../components/CardType";
-import ButtonDefault from '../components/buttons/ButtonDefault';
+import ButtonDefault from "../components/buttons/ButtonDefault";
 import TextField from "../components/inputs/TextField";
 //Services
 import {
@@ -16,15 +17,17 @@ import {
 } from "../services/pokemon.service";
 //Types
 import { IPokemon } from "../services/pokemon.types";
-import TextField2 from "../components/inputs/TextField2";
+//Icons
+import { FiSearch } from "react-icons/fi";
 
 const Home: NextPage = () => {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
   const [isLoadingPokemon, setisLoadingPokemon] = useState<boolean>(false);
   const router = useRouter();
+  const theme = useTheme();
 
   const handleLoadMorePokemon = async () => {
-    setisLoadingPokemon(prev => !prev);
+    setisLoadingPokemon((prev) => !prev);
     const listPokemons = await ListPokemonPaginationService(8, pokemons.length);
     const pokemonsResponse: IPokemon[] = [];
     for (const listPokemon of listPokemons.results) {
@@ -33,7 +36,7 @@ const Home: NextPage = () => {
       });
     }
     setPokemons(pokemons.concat(pokemonsResponse));
-    setisLoadingPokemon(prev => !prev);
+    setisLoadingPokemon((prev) => !prev);
   };
 
   // useEffect(() => {
@@ -52,8 +55,7 @@ const Home: NextPage = () => {
 
   return (
     <Container>
-      {/* <TextField /> */}
-      <TextField2 />
+      <TextField label="abc" type="text" iconRight={<FiSearch />} color="primary" />
       {/* <div className="content">
         {pokemons.map((pokemon) => {
           return (

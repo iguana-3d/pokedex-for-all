@@ -25,11 +25,11 @@ export const grey = {
 };
 
 const primary = {
-  lighter: "#C8FACD",
-  light: "#5BE584",
-  main: "#00AB55",
-  dark: "#007B55",
-  darker: "#005249",
+  lighter: "#e2e6e9",
+  light: "#a8b3bd",
+  main: "#919EAB",
+  dark: "#424d57",
+  darker: "#161a1d",
 };
 
 const secondary = {
@@ -230,7 +230,9 @@ export const theme = {
     inputs: {
       textField: {
         colors: {
-          border: pallete.colors.grey[500]
+          primary: pallete.colors.primary.main,
+          border: pallete.colors.grey[500],
+          labelColor: pallete.colors.primary.main
         }
       }
     }
