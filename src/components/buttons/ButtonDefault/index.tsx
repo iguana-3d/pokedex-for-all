@@ -1,28 +1,34 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import { Button } from "./styles";
 import Spinner from "../../loadings/Spinner";
 
-interface IProps {
+interface IProps extends HTMLAttributes<HTMLButtonElement> {
   buttonText: string;
   isLoading?: boolean;
   buttonSize?: number;
   isFullWidth?: boolean;
   loadingSpinnerSize?: number;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-const ButtonDefault: React.FC<IProps> = ({ ...props }) => {
+const ButtonDefault: React.FC<IProps> = ({
+  buttonText,
+  isLoading,
+  buttonSize,
+  isFullWidth,
+  loadingSpinnerSize,
+  ...props
+}) => {
   return (
     <Button
-      isLoading={props.isLoading}
-      buttonSize={props.buttonSize}
-      isFullWidth={props.isFullWidth}
-      onClick={props.onClick}
-      disabled={props.isLoading}
+      isLoading={isLoading}
+      buttonSize={buttonSize}
+      isFullWidth={isFullWidth}
+      disabled={isLoading}
+      {...props}
     >
-      <span className="text">{props.buttonText}</span>
+      <span className="text">{buttonText}</span>
       <span className="spinner">
-        <Spinner size={props.loadingSpinnerSize || 30} />
+        <Spinner size={loadingSpinnerSize || 30} />
       </span>
     </Button>
   );

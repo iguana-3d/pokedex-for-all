@@ -9,6 +9,7 @@ interface IContainerProps {
 export const Container = styled.div<IContainerProps>`
   position: relative;
   display: flex;
+  width: 100%;
 
   .input {
     width: 100%;

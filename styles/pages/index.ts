@@ -11,8 +11,12 @@ interface ICardTypeProps {
 
 export const Container = styled.div`
   grid-column: center-start/center-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${props => props.theme.spacing(3)};
 
-  .content {
+  .cards-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

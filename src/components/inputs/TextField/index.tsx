@@ -1,49 +1,48 @@
-import React from "react";
-import { useTheme } from "styled-components";
+import React, { InputHTMLAttributes, forwardRef } from "react";
 import { Container } from "./styles";
 
-interface IProps {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  placeholder?: string;
   color?: "primary" | "secondary" | "error" | "info" | "success" | "warning";
   defaultValue?: string | number;
   disabled?: boolean;
   value?: string | number;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  type: "text" | "email" | "submit";
   variant?: "outlined" | "filled";
   iconRight?: React.ReactNode;
 }
 
-const TextField: React.FC<IProps> = ({ ...props }) => {
-  const theme = useTheme();
-
+const TextField: React.ForwardRefRenderFunction<HTMLInputElement, IProps> = ({
+  label,
+  color,
+  defaultValue,
+  disabled,
+  iconRight,
+  ...props
+}, ref) => {
+  
   return (
-    <Container
-      color={props.color || "primary"}
-      iconRight={!!props.iconRight}
-      label={props.label}
-    >
+    <Container color={color || "primary"} iconRight={!!iconRight} label={label}>
       <input
         className="input"
         autoComplete="off"
         id="input"
-        disabled={props.disabled}
         placeholder={props.placeholder}
         type="text"
         required
+        ref={ref}
+        {...props}
       />
-      {props.iconRight && <div className="icon-box">{props.iconRight}</div>}
+      {iconRight && <div className="icon-box">{iconRight}</div>}
       <label className="label" htmlFor="input">
-        {props.label}
+        {label}
       </label>
       <fieldset className="fieldset">
         <legend className="legend">
-          <span className="span-legend"> {props.label}</span>
+          <span className="span-legend"> {label}</span>
         </legend>
       </fieldset>
     </Container>
   );
 };
 
-export default TextField;
+export default forwardRef(TextField);
