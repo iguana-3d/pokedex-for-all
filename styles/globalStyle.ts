@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+interface IGlobalProps {
+   hideOverflowOnModal?: boolean;
+}
+
+export default createGlobalStyle<IGlobalProps>`
 *,
 *::before,
 *::after {
@@ -26,6 +30,7 @@ body {
    font-weight: ${(props) => props.theme.typeFaceWeight.regular};
    font-size: 1.6rem;
    line-height: 1.6;
+   overflow: ${props => props.hideOverflowOnModal ? 'hidden' : 'auto'};
 }
 hr {
    width: 100%;

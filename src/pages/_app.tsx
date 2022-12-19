@@ -7,13 +7,14 @@ import GlobalStyle from "../../styles/globalStyle";
 import MainContainer from "../layouts/MainContainer";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const hideOverflowOnModal = false;
   return (
     <React.Fragment>
       <Head>
         <title>Pokédex for All</title>
       </Head>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
+        <GlobalStyle hideOverflowOnModal={hideOverflowOnModal} />
         <MainContainer>
           <Component {...pageProps} />
         </MainContainer>

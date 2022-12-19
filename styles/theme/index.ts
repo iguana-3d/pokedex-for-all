@@ -115,6 +115,20 @@ export const pallete = {
     others: {
       types: others,
     },
+    actions: {
+      hover: grey[500],
+      selected: grey[500],
+      disabled: grey[500],
+      disabledBackground: grey[500],
+      focus: grey[500],
+      hoverOpacity: 0.08,
+      disabledOpacity: 0.48,
+    },
+    backgrounds: {
+      paper: grey[100],
+      default: grey[100],
+      neutral:common.white,
+    },
   },
 };
 
@@ -232,10 +246,10 @@ export const theme = {
         colors: {
           primary: pallete.colors.primary.main,
           border: pallete.colors.grey[500],
-          labelColor: pallete.colors.primary.main
-        }
-      }
-    }
+          labelColor: pallete.colors.primary.main,
+        },
+      },
+    },
   },
   pallete: {
     colors: pallete.colors,

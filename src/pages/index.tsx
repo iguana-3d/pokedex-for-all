@@ -105,7 +105,11 @@ const Home: NextPage = () => {
         color="primary"
         ref={pokemonSearchRef}
       />
-      <ButtonDefault buttonText="search" onClick={handleSearchPokemonSubmit} />
+      <ButtonDefault
+       buttonText="search" 
+      //  onClick={handleSearchPokemonSubmit}
+      onClick={(() => {alert("On Development")})}
+        />
       <div className="cards-grid">
         {pokemons.length
           ? pokemons.map((pokemon) => {
@@ -124,6 +128,8 @@ const Home: NextPage = () => {
                           objectFit="contain"
                           quality={50}
                           priority
+                          placeholder="blur"
+                          blurDataURL="/static/images/favicon.ico"
                         />
                       </div>
                       <span className="card-number">
@@ -149,7 +155,7 @@ const Home: NextPage = () => {
       <div className="cards-loading-more">
         <ButtonDefault
           buttonText="load more"
-          isLoading={isLoadingPokemon}
+          isLoading={true}
           onClick={handleLoadMorePokemon}
         />
       </div>
