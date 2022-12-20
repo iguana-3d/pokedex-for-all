@@ -1,13 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
-export const Container = styled.div`
+interface IConfigGearOpenProps {
+  isConfigGearOpen: boolean;
+}
+
+export const Container = styled.div<IConfigGearOpenProps>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   z-index: 1000;
+  display: ${props => props.isConfigGearOpen ? 'block' : 'none'};
 
   .sidebar-content {
     position: absolute;
@@ -80,8 +85,8 @@ export const Container = styled.div`
 
   .language-flag {
     position: relative;
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
   }
 
   .social-medias {

@@ -18,13 +18,14 @@ export const Button = styled.button<IButtonProps>`
       : !!props.buttonSize
       ? pixelsToRemUnit(props.buttonSize)
       : "max-content"};
-  min-width: 10rem;
+  min-width: min-content;
   padding: 1rem 3rem;
   border-radius: 1rem;
   border: 2px solid ${(props) => props.theme.pallete.colors.grey[500]};
   letter-spacing: 1px;
   transition: ${(props) => props.theme.transitions("default", 0.15)};
   position: relative;
+  white-space: nowrap;
   cursor: pointer;
 
   &:hover {

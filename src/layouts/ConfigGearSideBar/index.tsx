@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import GlobalCssVariablesContext from "../../contexts/GlobalCssVariablesContext";
 import Image from "next/image";
 import { Container } from "./styles";
 //Icons
@@ -6,10 +7,12 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineClose } from "react-icons/ai";
 import { theme } from "../../../styles/theme";
 
 const ConfigGearSideBar: React.FC = () => {
+  const { isConfigGearOpen, handleConfigOpen } = useContext(GlobalCssVariablesContext);
+
   return (
-    <Container>
+    <Container isConfigGearOpen={isConfigGearOpen}>
       <div className="sidebar-content">
-        <div className="close-box">
+        <div className="close-box" onClick={handleConfigOpen}>
           <AiOutlineClose size="3rem" />
         </div>
         <p>Color Scheme</p>
@@ -77,8 +80,11 @@ const ConfigGearSideBar: React.FC = () => {
           </div>
         </div>
         <div className="social-medias">
-          <AiFillLinkedin size={"3rem"} color={theme.pallete.colors.grey[500]} />
-          <AiFillGithub size={"3rem"}  color={theme.pallete.colors.grey[500]} />
+          <AiFillLinkedin
+            size={"3rem"}
+            color={theme.pallete.colors.grey[500]}
+          />
+          <AiFillGithub size={"3rem"} color={theme.pallete.colors.grey[500]} />
         </div>
       </div>
       <div className="sidebar-background" />

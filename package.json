@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "apexcharts": "^3.36.3",
@@ -17,18 +19,30 @@
     "react-apexcharts": "^1.4.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
+    "react-is": "^18.2.0",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@storybook/addon-actions": "^6.5.14",
+    "@storybook/addon-essentials": "^6.5.14",
+    "@storybook/addon-interactions": "^6.5.14",
+    "@storybook/addon-links": "^6.5.14",
+    "@storybook/builder-webpack5": "^6.5.14",
+    "@storybook/manager-webpack5": "^6.5.14",
+    "@storybook/react": "^6.5.14",
+    "@storybook/testing-library": "^0.0.13",
     "@types/node": "18.11.2",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@types/styled-components": "^5.1.26",
+    "babel-loader": "^8.3.0",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",
+    "eslint-plugin-storybook": "^0.6.8",
     "typescript": "4.8.4"
   }
 }
