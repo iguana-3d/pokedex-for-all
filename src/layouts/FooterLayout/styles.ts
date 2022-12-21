@@ -7,5 +7,5 @@ export const Footer = styled.footer`
   width: 100%;
   height: inherit;
   background-color: ${(props) => props.theme.pallete.colors.grey[100]};
-  box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
+  box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
 `;

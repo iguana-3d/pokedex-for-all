@@ -11,7 +11,7 @@ export const Navigation = styled.nav`
   width: 100%;
   min-height: 8rem;
   background-color: ${(props) => props.theme.pallete.colors.grey[100]};
-  box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
+  box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
 
   .center-icon {
     display: flex;

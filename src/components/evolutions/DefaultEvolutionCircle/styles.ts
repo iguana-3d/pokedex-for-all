@@ -14,7 +14,7 @@ export const Container = styled.div`
   margin-top: ${(props) => props.theme.spacing(3)};
   width: 100%;
   min-height: 10rem;
-  box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
+  box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
   border-radius: 1rem 3rem;
   padding: ${(props) => props.theme.spacing(3)};
 
@@ -57,7 +57,7 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
             0.16,
             props.backgroundColor.primary
           )}`
-        : props.theme.shadows.custom.light.n8};
+        : props.theme.pallete.shadows.custom.n8};
     background-color: ${(props) => props.theme.pallete.colors.common.white};
     border-radius: 50%;
     cursor: pointer;
@@ -71,7 +71,7 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
     bottom: -1.5rem;
     left: -1.5rem;
     z-index: -1;
-    box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
+    box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
     background-image: ${(props) =>
       props.isActive
         ? props.backgroundColor.gradient

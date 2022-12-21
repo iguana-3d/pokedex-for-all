@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/theme";
 import GlobalStyle from "../../styles/globalStyle";
 import MainContainer from "../layouts/MainContainer";
+import { ThemeProvider } from "../contexts/ThemeContext";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const hideOverflowOnModal = false;
+  const [isHideOverflowOnModal, setIsHideOverflowOnModal] = useState(false);
+
   return (
     <React.Fragment>
       <Head>
         <title>Pokédex for All</title>
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle hideOverflowOnModal={hideOverflowOnModal} />
-        <MainContainer>
+      <ThemeProvider>
+        <GlobalStyle hideOverflowOnModal={isHideOverflowOnModal} />
+        <MainContainer
+          isHideOverflowOnModal={isHideOverflowOnModal}
+          setIsHideOverflowOnModal={setIsHideOverflowOnModal}
+        >
           <Component {...pageProps} />
         </MainContainer>
       </ThemeProvider>

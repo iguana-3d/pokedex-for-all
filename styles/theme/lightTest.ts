@@ -230,6 +230,35 @@ export const sizes = {
   desktop: "120em", //1920px
 };
 
+const colors = {
+  common: common,
+  primary: primary,
+  secondary: secondary,
+  error: error,
+  warning: warning,
+  info: info,
+  success: success,
+  grey: grey,
+  text: text,
+  others: {
+    types: others,
+  },
+  actions: {
+    hover: grey[500],
+    selected: grey[500],
+    disabled: grey[500],
+    disabledBackground: grey[500],
+    focus: grey[500],
+  },
+  backgrounds: {
+    paper: grey[100],
+    default: grey[100],
+    neutral: common.white,
+  },
+};
+
+
+
 //***********************************************
 // THEME
 //***********************************************
@@ -252,8 +281,8 @@ export const theme = {
     },
   },
   pallete: {
-    colors: light.colors,
-    gradients: light.gradients,
+    colors: colors,
+    gradients: gradients,
     shadows: {
       default: createShadow(pallete.colors.grey[500]),
       custom: createCustomShadow(pallete.colors.grey[500]),
@@ -323,3 +352,5 @@ export const theme = {
     ${!!left ? pixelsToRemUnit(left * spacingDefault) : ""}
       `,
 };
+
+

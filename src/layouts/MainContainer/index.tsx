@@ -1,25 +1,31 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import NavBar from "../NavBar";
 import FooterLayout from "../FooterLayout";
 import ConfigGear from "../ConfigGear";
 import { Container } from "./styles";
 import ConfigGearSideBar from "../ConfigGearSideBar";
-import { GlobalCssVariablesProvider } from "../../contexts/GlobalCssVariablesContext";
 
 interface IProps {
   children?: React.ReactNode;
+  isHideOverflowOnModal: boolean;
+  setIsHideOverflowOnModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const MainContainer: React.FC<IProps> = ({ children }) => {
+const MainContainer: React.FC<IProps> = ({
+  children,
+  isHideOverflowOnModal,
+  setIsHideOverflowOnModal,
+}) => {
   return (
     <Container>
-      <GlobalCssVariablesProvider>
-        <NavBar />
-        <div className="content">{children}</div>
-        <ConfigGear />
-        <ConfigGearSideBar />
-        <FooterLayout />
-      </GlobalCssVariablesProvider>
+      <NavBar />
+      <div className="content">{children}</div>
+      <ConfigGear setIsHideOverflowOnModal={setIsHideOverflowOnModal} />
+      <ConfigGearSideBar
+        isHideOverflowOnModal={isHideOverflowOnModal}
+        setIsHideOverflowOnModal={setIsHideOverflowOnModal}
+      />
+      <FooterLayout />
     </Container>
   );
 };

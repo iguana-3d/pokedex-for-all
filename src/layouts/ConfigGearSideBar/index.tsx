@@ -1,16 +1,27 @@
-import React, { useContext } from "react";
-import GlobalCssVariablesContext from "../../contexts/GlobalCssVariablesContext";
+import React, { useContext, Dispatch, SetStateAction } from "react";
+import ThemeContext from "../../contexts/ThemeContext";
 import Image from "next/image";
 import { Container } from "./styles";
 //Icons
 import { AiFillGithub, AiFillLinkedin, AiOutlineClose } from "react-icons/ai";
-import { theme } from "../../../styles/theme";
 
-const ConfigGearSideBar: React.FC = () => {
-  const { isConfigGearOpen, handleConfigOpen } = useContext(GlobalCssVariablesContext);
+interface IConfigOpen {
+  isHideOverflowOnModal: boolean;
+  setIsHideOverflowOnModal: Dispatch<SetStateAction<boolean>>;
+}
+
+const ConfigGearSideBar: React.FC<IConfigOpen> = ({
+  isHideOverflowOnModal,
+  setIsHideOverflowOnModal,
+}) => {
+  const { toggleTheme } = useContext(ThemeContext);
+
+  const handleConfigOpen = () => {
+    setIsHideOverflowOnModal((prev) => !prev);
+  };
 
   return (
-    <Container isConfigGearOpen={isConfigGearOpen}>
+    <Container isConfigGearOpen={isHideOverflowOnModal}>
       <div className="sidebar-content">
         <div className="close-box" onClick={handleConfigOpen}>
           <AiOutlineClose size="3rem" />
@@ -18,7 +29,10 @@ const ConfigGearSideBar: React.FC = () => {
         <p>Color Scheme</p>
         <div className="color-scheme-boxes">
           <div className="color-scheme-box">
-            <div className="color-scheme-container-image">
+            <div
+              className="color-scheme-container-image"
+              onClick={() => toggleTheme("light")}
+            >
               <div className="color-scheme-content-image">
                 <Image
                   src="/static/images/light.png"
@@ -35,7 +49,10 @@ const ConfigGearSideBar: React.FC = () => {
             <p>Light</p>
           </div>
           <div className="color-scheme-box">
-            <div className="color-scheme-container-image">
+            <div
+              className="color-scheme-container-image"
+              onClick={() => toggleTheme("dark")}
+            >
               <div className="color-scheme-content-image">
                 <Image
                   src="/static/images/light.png"
@@ -80,11 +97,8 @@ const ConfigGearSideBar: React.FC = () => {
           </div>
         </div>
         <div className="social-medias">
-          <AiFillLinkedin
-            size={"3rem"}
-            color={theme.pallete.colors.grey[500]}
-          />
-          <AiFillGithub size={"3rem"} color={theme.pallete.colors.grey[500]} />
+          <AiFillLinkedin size={"3rem"} />
+          <AiFillGithub size={"3rem"} />
         </div>
       </div>
       <div className="sidebar-background" />

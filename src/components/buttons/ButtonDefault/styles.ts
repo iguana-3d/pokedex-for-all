@@ -10,7 +10,7 @@ interface IButtonProps {
 export const Button = styled.button<IButtonProps>`
   background-color: ${(props) =>
     props.isLoading ? props.theme.pallete.colors.grey[300] : "transparent"};
-  box-shadow: ${(props) => props.theme.shadows.custom.light.n8};
+  box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
   min-height: 5rem;
   width: ${(props) =>
     props.isFullWidth
@@ -30,7 +30,7 @@ export const Button = styled.button<IButtonProps>`
 
   &:hover {
     background: ${(props) => props.isLoading ? props.theme.pallete.colors.grey[300] : props.theme.pallete.colors.grey[500]};
-    box-shadow: ${(props) => props.theme.shadows.custom.light.n20};
+    box-shadow: ${(props) => props.theme.pallete.shadows.custom.n20};
   }
 
   &:hover .text {

@@ -14,7 +14,7 @@ const GlobalCssVariablesContext = createContext<IGlobalCssVariablesContext>(
 );
 
 export const GlobalCssVariablesProvider: React.FC<IProps> = ({ children }) => {
-  const [isConfigGearOpen, setIsConfigGearOpen] = useState<boolean>(true);
+  const [isConfigGearOpen, setIsConfigGearOpen] = useState<boolean>(false);
 
   const handleConfigOpen = () => {
     setIsConfigGearOpen(prev => !prev)

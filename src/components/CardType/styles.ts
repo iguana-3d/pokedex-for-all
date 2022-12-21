@@ -17,5 +17,5 @@ export const Container = styled.div<ICardTypeProps>`
   background-image: ${(props) => props.backgroundColor.gradient};
   border-radius: ${(props) => props.theme.spacing(1)};
   padding: ${(props) => props.theme.spacing(0, 3)};
-  box-shadow: ${(props) => props.theme.shadows.custom.light.n4};
+  box-shadow: ${(props) => props.theme.pallete.shadows.custom.n4};
 `;

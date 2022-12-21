@@ -99,6 +99,7 @@ export const Container = styled.div<IConfigGearOpenProps>`
 
     svg {
       transition: ${(props) => props.theme.transitions("default", 0.15)};
+      fill: ${props => props.theme.pallete.colors.grey[500]};
       cursor: pointer;
 
       &:hover {
