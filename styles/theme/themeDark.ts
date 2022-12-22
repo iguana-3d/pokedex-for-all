@@ -1,17 +1,8 @@
-import { lighten, parseToRgb } from "polished";
-import { css } from "styled-components";
-import { pixelsToRemUnit } from "../../src/utils/sizesCalcs";
-import light from "./light";
-import dark from "./dark";
+import { lighten } from "polished";
+import baseTheme from "./baseTheme";
 //TYPES
-import {
-  ICustomShadowOptions,
-  IKindOfTransition,
-  IShadows,
-} from "./theme.types";
+import { ICustomShadowOptions, IShadows } from "./theme.types";
 //Name color identify in: https://www.color-name.com/hex
-
-const spacingDefault = 8;
 
 export const grey = {
   0: "#FFFFFF",
@@ -150,14 +141,18 @@ const createCustomShadow = (color: string): ICustomShadowOptions => {
     n16: `0 16px 32px -4px ${transparent}`,
     n20: `0 20px 40px -4px ${transparent}`,
     n24: `0 24px 48px 0 ${transparent}`,
-    primary: `0 8px 16px 0 ${lighten(0.24, pallete.colors.primary.main)}`,
-    info: `0 8px 16px 0 ${lighten(0.24, pallete.colors.info.main)}`,
-    secondary: `0 8px 16px 0 ${lighten(0.24, pallete.colors.secondary.main)}`,
-    success: `0 8px 16px 0 ${lighten(0.24, pallete.colors.success.main)}`,
-    warning: `0 8px 16px 0 ${lighten(0.24, pallete.colors.warning.main)}`,
-    error: `0 8px 16px 0 ${lighten(0.24, pallete.colors.error.main)}`,
+    primary: `0 8px 16px 0 ${lighten(0.24, colors.primary.main)}`,
+    info: `0 8px 16px 0 ${lighten(0.24, colors.info.main)}`,
+    secondary: `0 8px 16px 0 ${lighten(0.24, colors.secondary.main)}`,
+    success: `0 8px 16px 0 ${lighten(0.24, colors.success.main)}`,
+    warning: `0 8px 16px 0 ${lighten(0.24, colors.warning.main)}`,
+    error: `0 8px 16px 0 ${lighten(0.24, colors.error.main)}`,
   };
 };
+
+//***********************************************
+// GRADIENTS
+//***********************************************
 
 export const gradients = {
   normal: "linear-gradient(135deg, #aca974, #ccc9aa, #eaeade)",
@@ -178,57 +173,13 @@ export const gradients = {
   dragon: "linear-gradient(135deg, #29036a, #8a55fd, #d6b1fe)",
   dark: "linear-gradient(135deg, #2d221c, #5f4632, #916852, #4f4f4f)",
   fairy: "linear-gradient(135deg, #f87ea7, #ffa0c2, #fdd1e0)",
-  // $gradient-top: linear-gradient(0deg, #ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
-  // $gradient-radial: radial-gradient(#ffd6ffff, #e7c6ffff, #c8b6ffff, #b8c0ffff, #bbd0ffff);
   gradient1:
     "linear-gradient(90deg, #7400b8ff, #6930c3ff, #5e60ceff, #5390d9ff, #4ea8deff, #48bfe3ff, #56cfe1ff, #64dfdfff, #72efddff, #80ffdbff, #5390d9ff, #5e60ceff, #6930c3ff,  #7400b8ff)",
-  // $gradient-top: linear-gradient(0deg, #cad2c5ff, #84a98cff, #52796fff, #354f52ff, #2f3e46ff);
-  // $gradient-top: linear-gradient(0deg, #edede9ff, #d6ccc2ff, #f5ebe0ff, #e3d5caff, #d5bdafff);
 };
 
-export const pallete = {
-  colors: {
-    common: common,
-    primary: primary,
-    secondary: secondary,
-    error: error,
-    warning: warning,
-    info: info,
-    success: success,
-    grey: grey,
-    text: text,
-    others: {
-      types: others,
-    },
-    actions: {
-      hover: grey[500],
-      selected: grey[500],
-      disabled: grey[500],
-      disabledBackground: grey[500],
-      focus: grey[500],
-    },
-    backgrounds: {
-      paper: grey[100],
-      default: grey[100],
-      neutral: common.white,
-    },
-  },
-};
-
-export const typefaceWeight = {
-  regular: 400,
-  medium: 500,
-  semiBold: 600,
-  bold: 700,
-};
-
-export const sizes = {
-  mobile: "37.5em", //600px
-  tablet: "48em", //768px
-  laptopSmall: "64em", //1024px
-  laptopLarge: "90em", //1440px
-  desktop: "120em", //1920px
-};
+//***********************************************
+// COLORS
+//***********************************************
 
 const colors = {
   common: common,
@@ -261,7 +212,7 @@ const colors = {
 // THEME
 //***********************************************
 
-export const theme = {
+const theme = {
   components: {
     buttons: {
       buttonDefault: {
@@ -271,9 +222,9 @@ export const theme = {
     inputs: {
       textField: {
         colors: {
-          primary: pallete.colors.primary.main,
-          border: pallete.colors.grey[500],
-          labelColor: pallete.colors.primary.main,
+          primary: colors.primary.main,
+          border: colors.grey[500],
+          labelColor: colors.primary.main,
         },
       },
     },
@@ -282,75 +233,12 @@ export const theme = {
     colors: colors,
     gradients: gradients,
     shadows: {
-      default: createShadow(pallete.colors.grey[500]),
-      custom: createCustomShadow(pallete.colors.grey[500]),
+      default: createShadow(colors.grey[500]),
+      custom: createCustomShadow(colors.grey[500]),
     },
   },
-  typeFaceWeight: typefaceWeight,
-  sizes: {
-    icons: {
-      default: 32,
-    },
-  },
-  medias: {
-    mobile: `(max-width: ${sizes.mobile})`,
-    tablet: `(max-width: ${sizes.tablet})`,
-    laptopSmall: `(max-width: ${sizes.laptopSmall})`,
-    laptopLarge: `(max-width: ${sizes.laptopLarge})`,
-    desktop: `(max-width: ${sizes.desktop})`,
-  },
-  functions: {
-    parseToRgb: (color: string) => {
-      const rgb = parseToRgb(color);
-      return `${rgb.red}, ${rgb.green}, ${rgb.blue}`;
-    },
-  },
-  mixins: {
-    containerGridDefault: () => css`
-      display: grid;
-      grid-template-columns:
-        [full-start] minmax(6rem, 1fr) [center-start]
-        repeat(12, [col-start] minmax(min-content, 12rem) [col-end])
-        [center-end]
-        minmax(6rem, 1fr)
-        [full-end];
-    `,
-    absoluteCenter: () => css`
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    `,
-  },
-  transitions: (
-    kindOfTransition: IKindOfTransition,
-    timeInSeconds?: number,
-    propertyCss?: string
-  ) => {
-    const transitionObject = {
-      default: `${propertyCss || "all"} ${
-        timeInSeconds || 0.3
-      }s cubic-bezier(1, 0, 0, 1)`,
-      easeInOutBack: `${propertyCss || "all"} ${
-        timeInSeconds || 0.3
-      } cubic-bezier(0.68, -0.6, 0.32, 1.6);`,
-    };
-    return transitionObject[kindOfTransition];
-  },
-  spacing: (
-    topOrFull: number,
-    rightOrBoth?: number,
-    bottom?: number,
-    left?: number
-  ) =>
-    `
-    ${pixelsToRemUnit(topOrFull * spacingDefault)} 
-    ${!!rightOrBoth ? pixelsToRemUnit(rightOrBoth * spacingDefault) : ""}
-    ${!!bottom ? pixelsToRemUnit(bottom * spacingDefault) : ""}
-    ${!!left ? pixelsToRemUnit(left * spacingDefault) : ""}
-      `,
 };
 
+const themeDark = { ...baseTheme, ...theme };
 
-
-
+export default themeDark;

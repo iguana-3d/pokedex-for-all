@@ -3,14 +3,7 @@ import {
   ThemeProvider as ThemeProviderStyled,
   DefaultTheme,
 } from "styled-components";
-import { theme as themeBase } from "../../styles/theme";
-import usePersistedState from "../hooks/usePersistedState";
-
-import light from "../../styles/theme/light";
-import dark from "../../styles/theme/dark";
-
-import { theme as darkTest } from "../../styles/theme/darkTest";
-import { theme as lightTest } from "../../styles/theme/lightTest";
+import themes from "../../styles/theme";
 
 interface IProps {
   children: React.ReactNode;
@@ -25,17 +18,17 @@ type IMode = "light" | "dark";
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
 export const ThemeProvider: React.FC<IProps> = ({ children }) => {
-  const [theme, setTheme] = useState<DefaultTheme>(lightTest);
+  const [theme, setTheme] = useState<DefaultTheme>(themes.themeLight);
 
-  const darkMode = () => {
-    let modifyTheme = themeBase;
-    modifyTheme.pallete.colors = dark.colors;
-    modifyTheme.pallete.gradients = dark.gradients;
-    return modifyTheme;
-  };
+  // const darkMode = () => {
+  //   let modifyTheme = themeBase;
+  //   modifyTheme.pallete.colors = dark.colors;
+  //   modifyTheme.pallete.gradients = dark.gradients;
+  //   return modifyTheme;
+  // };
 
   const toggleTheme = (mode: IMode) => {
-    setTheme(mode === "light" ? lightTest : darkTest);
+    setTheme(mode === "light" ? themes.themeLight : themes.themeDark);
     localStorage.setItem("mode", mode);
   };
 

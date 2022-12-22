@@ -1,4 +1,4 @@
-import { gradients, pallete } from "../../styles/theme";
+import { gradients, pallete } from "../../styles/theme/baseTheme";
 
 export const cardTypeColor = (type: string) => {
   switch (type) {
