@@ -1,9 +1,9 @@
 import React from "react"
 import { ThemeProvider } from "styled-components";
-import { theme } from "./theme/baseTheme";
+import themes from "./theme";
 
 const ThemeDecorator = (storyFn: any) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={themes.themeLight}>
   {storyFn()}
   </ThemeProvider>
 )

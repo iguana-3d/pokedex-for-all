@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ITypes } from "../../src/services/pokemon.types";
 import { lighten } from "polished";
 
 interface ICardTypeProps {

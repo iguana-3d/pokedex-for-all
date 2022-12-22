@@ -3,9 +3,7 @@ import { Container } from './styles';
 
 const CardPokemonSkeleton: React.FC = () => {
   return (
-    <Container>
-
-    </Container>
+    <Container />
   );
 }
 

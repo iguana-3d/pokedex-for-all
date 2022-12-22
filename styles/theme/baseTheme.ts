@@ -44,6 +44,12 @@ const baseTheme = {
     laptopLarge: `(max-width: ${sizes.laptopLarge})`,
     desktop: `(max-width: ${sizes.desktop})`,
   },
+  functions: {
+    parseToRgb: (color: string) => {
+      const rgb = parseToRgb(color);
+      return `${rgb.red}, ${rgb.green}, ${rgb.blue}`;
+    },
+  },
   mixins: {
     containerGridDefault: () => css`
       display: grid;

@@ -2,10 +2,10 @@ import styled, { keyframes } from 'styled-components';
 
 const animateSkeleton = keyframes`
 0% {
-  transform: translateX(-150%) skewX(-20deg);
+  transform: translateX(-200%) skewX(-20deg);
 }
 75% {
-  transform: translateX(-140%) skewX(-20deg);
+  transform: translateX(-150%) skewX(-20deg);
 }
 100% {
   transform: translateX(250%) skewX(-20deg);
