@@ -5,32 +5,32 @@ import { ICustomShadowOptions, IShadows } from "./theme.types";
 //Name color identify in: https://www.color-name.com/hex
 
 export const grey = {
-  0: "#FFFFFF",
-  100: "#F9FAFB",
-  200: "#F4F6F8",
-  300: "#DFE3E8",
-  400: "#C4CDD5",
-  500: "#00FF00",
-  600: "#637381",
-  700: "#454F5B",
-  800: "#212B36",
-  900: "#161C24",
+  0: "#6f8190",
+  100: "#54626e",
+  200: "#4b5762",
+  300: "#3a434b",
+  400: "#31393f",
+  500: "#282e34",
+  600: "#1f2428",
+  700: "#161a1d",
+  800: "#0d0f11",
+  900: "#040506",
 };
 
 const primary = {
-  lighter: "#e2e6e9",
-  light: "#a8b3bd",
-  main: "#00FF00",
-  dark: "#424d57",
-  darker: "#161a1d",
+  lighter: "#999999",
+  light: "#777777",
+  main: "#555555",
+  dark: "#333333",
+  darker: "#111111",
 };
 
 const secondary = {
-  lighter: "#D6E4FF",
-  light: "#84A9FF",
-  main: "#3366FF",
-  dark: "#1939B7",
-  darker: "#091A7A",
+  lighter: "#efe8fc",
+  light: "#ae8cf2",
+  main: "#6d30e8",
+  dark: "#2f0d73",
+  darker: "#090317",
 };
 
 const info = {
@@ -67,10 +67,16 @@ const common = {
   white: "#FFFFFF",
 };
 
-export const text = {
+const text = {
   primary: "#121828",
   secondary: "#65748B",
   disabled: "rgba(55, 65, 81, 0.48)",
+};
+
+const background = {
+  paper: grey[100],
+  default: "#292929",
+  neutral: common.white,
 };
 
 export const others = {
@@ -201,11 +207,7 @@ const colors = {
     disabledBackground: grey[500],
     focus: grey[500],
   },
-  backgrounds: {
-    paper: grey[100],
-    default: grey[100],
-    neutral: common.white,
-  },
+  backgrounds: background,
 };
 
 //***********************************************
@@ -217,6 +219,7 @@ const theme = {
     buttons: {
       buttonDefault: {
         gradientColor: gradients.gradient1,
+        background: primary.main
       },
     },
     inputs: {
@@ -233,8 +236,8 @@ const theme = {
     colors: colors,
     gradients: gradients,
     shadows: {
-      default: createShadow(colors.grey[500]),
-      custom: createCustomShadow(colors.grey[500]),
+      default: createShadow(primary.darker),
+      custom: createCustomShadow(primary.darker),
     },
   },
 };

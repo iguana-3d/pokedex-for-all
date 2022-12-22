@@ -10,7 +10,7 @@ export const Navigation = styled.nav`
   padding: ${(props) => props.theme.spacing(2)};
   width: 100%;
   min-height: 8rem;
-  background-color: ${(props) => props.theme.pallete.colors.grey[100]};
+  background-color: ${(props) => props.theme.pallete.colors.backgrounds.default};
   box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
 
   .center-icon {

@@ -9,7 +9,7 @@ interface IButtonProps {
 
 export const Button = styled.button<IButtonProps>`
   background-color: ${(props) =>
-    props.isLoading ? props.theme.pallete.colors.grey[300] : "transparent"};
+    props.isLoading ? props.theme.pallete.colors.grey[300] : props.theme.components.buttons.buttonDefault.background};
   box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
   min-height: 5rem;
   width: ${(props) =>

@@ -67,10 +67,16 @@ const common = {
   white: "#FFFFFF",
 };
 
-export const text = {
+const text = {
   primary: "#121828",
   secondary: "#65748B",
   disabled: "rgba(55, 65, 81, 0.48)",
+};
+
+const background = {
+  paper: grey[100],
+  default: grey[100],
+  neutral: common.white,
 };
 
 export const others = {
@@ -205,11 +211,7 @@ const colors = {
     disabledBackground: grey[500],
     focus: grey[500],
   },
-  backgrounds: {
-    paper: grey[100],
-    default: grey[100],
-    neutral: common.white,
-  },
+  backgrounds: background,
 };
 
 //***********************************************
@@ -221,6 +223,7 @@ const theme = {
     buttons: {
       buttonDefault: {
         gradientColor: gradients.gradient1,
+        background: grey[100]
       },
     },
     inputs: {

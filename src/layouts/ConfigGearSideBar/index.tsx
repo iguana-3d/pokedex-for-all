@@ -101,7 +101,7 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
           <AiFillGithub size={"3rem"} />
         </div>
       </div>
-      <div className="sidebar-background" />
+      <div className="sidebar-background" onClick={handleConfigOpen} />
     </Container>
   );
 };
