@@ -36,23 +36,26 @@ const DefaultEvolutionCircle: React.FC<IProps> = ({
                 )}
               >
                 <Link href={`/pokemon/${pokemonInformation.id}`}>
-                
-                <div className="image-content-circle">
-                  {!!pokemonInformation && (
-                    <Image
-                    src={`${
-                        pokemonInformation?.sprites.other["official-artwork"]
-                          .front_default || "/static/images/pokeball.png"
-                      }`}
-                      alt={`${pokemonInformation?.name}`}
-                      layout="fill"
-                      objectFit="contain"
-                      quality={50}
-                      priority
-                      />
+                  <div className="image-link-circle">
+                    <div className="image-content-circle">
+                      {!!pokemonInformation && (
+                        <Image
+                          src={`${
+                            pokemonInformation?.sprites.other[
+                              "official-artwork"
+                            ].front_default || "/static/images/pokeball.png"
+                          }`}
+                          alt={`${pokemonInformation?.name}`}
+                          layout="fill"
+                          objectFit="contain"
+                          quality={50}
+                          priority
+                        />
                       )}
-                </div>
-                      </Link>
+                    </div>
+                    <div className="image-content-circle-background" />
+                  </div>
+                </Link>
                 <p className="card-pokemon-name">
                   {pokemonInformation?.name}&nbsp;
                   <span>#{("0000" + pokemonInformation?.id).slice(-4)}</span>

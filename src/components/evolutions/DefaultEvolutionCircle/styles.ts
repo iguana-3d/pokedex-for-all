@@ -45,6 +45,10 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
   min-width: 25rem;
   gap: 1rem;
 
+  .image-link-circle {
+    position: relative;
+    z-index: 1;
+  }
 
   .image-content-circle {
     position: relative;
@@ -53,24 +57,20 @@ export const CardCircleBox = styled.div<ICardCircleBoxProps>`
     border: 5px solid ${(props) => props.theme.pallete.colors.common.white};
     box-shadow: ${(props) =>
       props.isActive
-        ? `0 8px 16px 0 ${lighten(
-            0.16,
-            props.backgroundColor.primary
-          )}`
+        ? `0 8px 16px 0 ${lighten(0.16, props.backgroundColor.primary)}`
         : props.theme.pallete.shadows.custom.n8};
     background-color: ${(props) => props.theme.pallete.colors.common.white};
     border-radius: 50%;
+    z-index: 2;
     cursor: pointer;
   }
 
-  .image-content-circle::after {
-    content: "";
+  .image-content-circle-background {
     position: absolute;
     top: -1.5rem;
     right: -1.5rem;
     bottom: -1.5rem;
     left: -1.5rem;
-    z-index: -1;
     box-shadow: ${(props) => props.theme.pallete.shadows.custom.n8};
     background-image: ${(props) =>
       props.isActive

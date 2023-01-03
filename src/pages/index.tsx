@@ -131,7 +131,7 @@ const Home: NextPage = () => {
                           quality={50}
                           priority
                           placeholder="blur"
-                          blurDataURL="/static/images/favicon.ico"
+                          blurDataURL={`${pokemon.sprites.other["official-artwork"].front_default}`}
                         />
                       </div>
                       <span className="card-number">
