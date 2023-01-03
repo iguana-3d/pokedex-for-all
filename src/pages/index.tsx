@@ -68,33 +68,33 @@ const Home: NextPage = () => {
     return skeletons;
   };
 
-  // useEffect(() => {
-  //   router.isReady &&
-  //     (async () => {
-  //       const listPokemons = await ListPokemonPaginationService(1500, 0);
-  //       const resultListPokemonsFirst = listPokemons.results.slice(0, 905);
-  //       const resultListPokemonsSecond = listPokemons.results.slice(905);
-  //       for (const listPokemon of resultListPokemonsSecond) {
-  //         const namePokemonSplit = listPokemon.name.split("-");
-  //         namePokemonSplit.some((name) => name.includes("mega")) &&
-  //           resultListPokemonsFirst.push(listPokemon);
-  //       }
+  useEffect(() => {
+    router.isReady &&
+      (async () => {
+        const listPokemons = await ListPokemonPaginationService(1500, 0);
+        const resultListPokemonsFirst = listPokemons.results.slice(0, 905);
+        const resultListPokemonsSecond = listPokemons.results.slice(905);
+        for (const listPokemon of resultListPokemonsSecond) {
+          const namePokemonSplit = listPokemon.name.split("-");
+          namePokemonSplit.some((name) => name.includes("mega")) &&
+            resultListPokemonsFirst.push(listPokemon);
+        }
 
-  //       setResultListNamesPokemon(resultListPokemonsFirst);
-  //       const pokemonsResponse: IPokemon[] = [];
-  //       for (const resultListPokemonFirst of resultListPokemonsFirst.slice(
-  //         0,
-  //         8
-  //       )) {
-  //         await SearchPokemonService(resultListPokemonFirst.name).then(
-  //           (pokemon) => {
-  //             pokemonsResponse.push(pokemon);
-  //           }
-  //         );
-  //       }
-  //       setPokemons(pokemonsResponse);
-  //     })();
-  // }, [router.isReady]);
+        setResultListNamesPokemon(resultListPokemonsFirst);
+        const pokemonsResponse: IPokemon[] = [];
+        for (const resultListPokemonFirst of resultListPokemonsFirst.slice(
+          0,
+          8
+        )) {
+          await SearchPokemonService(resultListPokemonFirst.name).then(
+            (pokemon) => {
+              pokemonsResponse.push(pokemon);
+            }
+          );
+        }
+        setPokemons(pokemonsResponse);
+      })();
+  }, [router.isReady]);
 
   return (
     <Container>
@@ -106,10 +106,12 @@ const Home: NextPage = () => {
         ref={pokemonSearchRef}
       />
       <ButtonDefault
-       buttonText="search" 
-      //  onClick={handleSearchPokemonSubmit}
-      onClick={(() => {alert("On Development")})}
-        />
+        buttonText="search"
+        //  onClick={handleSearchPokemonSubmit}
+        onClick={() => {
+          alert("On Development");
+        }}
+      />
       <div className="cards-grid">
         {pokemons.length
           ? pokemons.map((pokemon) => {
