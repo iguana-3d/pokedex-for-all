@@ -66,7 +66,8 @@ export const Container = styled.div<IConfigGearOpenProps>`
     width: 100%;
     border: 2px solid ${props => props.theme.pallete.colors.grey[400]};
     border-radius: ${props => props.theme.spacing(1)};
-    padding: ${props => props.theme.spacing(1)};
+    padding: ${props => props.theme.spacing(1)};    
+    cursor: pointer;
   }
 
   .color-scheme-content-image {

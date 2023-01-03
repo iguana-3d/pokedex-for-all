@@ -55,7 +55,7 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
             >
               <div className="color-scheme-content-image">
                 <Image
-                  src="/static/images/light.png"
+                  src="/static/images/dark.png"
                   alt="theme-dark"
                   layout="fill"
                   objectFit="contain"
@@ -73,8 +73,8 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
         <div className="languages-flags">
           <div className="language-flag">
             <Image
-              src={"/static/images/brazil.png"}
-              alt={"brazilian-flag"}
+              src="/static/images/brazil.png"
+              alt="brazilian-flag"
               layout="fill"
               objectFit="contain"
               quality={100}
@@ -85,8 +85,8 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
           </div>
           <div className="language-flag">
             <Image
-              src={"/static/images/usa.png"}
-              alt={"united-states-flag"}
+              src="/static/images/usa.png"
+              alt="united-states-flag"
               layout="fill"
               objectFit="contain"
               quality={100}
