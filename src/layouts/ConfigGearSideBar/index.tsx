@@ -35,14 +35,14 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
             >
               <div className="color-scheme-content-image">
                 <Image
-                  src="/static/images/light.png"
+                  src="/static/images/light-website.PNG"
                   alt="theme-light"
                   layout="fill"
                   objectFit="contain"
                   quality={50}
                   priority
                   placeholder="blur"
-                  blurDataURL="/static/images/favicon.ico"
+                  blurDataURL="/static/images/light-website.PNG"
                 />
               </div>
             </div>
@@ -55,14 +55,14 @@ const ConfigGearSideBar: React.FC<IConfigOpen> = ({
             >
               <div className="color-scheme-content-image">
                 <Image
-                  src="/static/images/dark.png"
+                  src="/static/images/dark-website.PNG"
                   alt="theme-dark"
                   layout="fill"
                   objectFit="contain"
                   quality={100}
                   priority
                   placeholder="blur"
-                  blurDataURL="/static/images/brazil.png"
+                  blurDataURL="/static/images/dark-website.PNG"
                 />
               </div>
             </div>
